@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,12 +12,15 @@ using System.Windows.Forms;
 namespace Atividade_6
 {
     public partial class Form1: Form
+        
     {
         public Form1()
         {
             InitializeComponent();
         }
 
+        /*Escreva um programa que exiba as seguintes opções e realize os que se pede em cada uma delas: 
+        1 – Adição 2 – Subtração 3 – Multiplicação 4 – Divisão */
         private void btn_calcular_Click(object sender, EventArgs e)
         {
             double numero1, numero2, resultado = 0;
@@ -29,8 +33,6 @@ namespace Atividade_6
 
             string operacao = cbo_operacao.SelectedItem?.ToString();
 
-
-            // Verifica se os valores digitados são números válidos
             if (double.TryParse(txt_n1.Text, out numero1) && double.TryParse(txt_n2.Text, out numero2))
             {
                 switch (operacao)
@@ -60,7 +62,6 @@ namespace Atividade_6
                         return;
                 }
 
-                // Exibe o resultado formatado com duas casas decimais
                 lbl_resultado.Text = $"Resultado: {resultado:F2}";
             }
             else
